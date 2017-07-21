@@ -1,0 +1,32 @@
+.stopwatch__stopwatch {
+    background-color: #adadad;
+    border: 1px solid #5e5e5e;
+    border-radius: 8px;
+    margin: 10px;
+}
+
+.stopwatch__tablo {
+    color: #262626;
+    background-color: #5bc0de;
+    border: 1px solid #5e5e5e;
+    border-radius: 8px;
+    margin: 5px;
+    padding: 2px;
+}
+.stopwatch__btn-group {
+    margin-top: 5px;
+    border: 1px solid #5e5e5e;
+    border-radius: 4px;
+}
+.stopwatch__btn-new-stopwatch {
+    border: 1px solid #5e5e5e;
+    border-radius: 4px;
+}
+.stopwatch__stop-item {
+    color: #262626;
+    background-color: #5bc0de;
+    border: 1px solid #5e5e5e;
+    border-radius: 4px;
+    margin: 5px;
+    padding: 2px 5px;
+}
