@@ -24,7 +24,8 @@ class AppState {
                     timeStart: timeStart = 0,
                     running: running = false,
                     lastStopTime: lastStopTime = 0,
-                    stopsCount: stopsCount = []}) {
+                    stopsCount: stopsCount = []} = {}) {
+
         let stopwatchState = {
 
             @observable
@@ -68,19 +69,24 @@ class AppState {
         if (!localStorage.arrStopwatchObj) {
             this.createStopwatch();
         } else {
-            let stopwatchArrJSON = JSON.parse(localStorage.arrStopwatchObj);
-            stopwatchArrJSON.map((obj) => {
-                this.createStopwatch({time: obj.time,
-                    timeStart: obj.timeStart,
-                    running: obj.running,
-                    lastStopTime: obj.lastStopTime,
-                    stopsCount: obj.stopsCount});
-            });
-            this.stopwatchArr.map((obj) => {
-                if (obj.isRunning) {
-                    this.startTimer(obj);
-                }
-            });
+            try {
+                let stopwatchArrJSON = JSON.parse(localStorage.arrStopwatchObj);
+                stopwatchArrJSON.map((obj) => {
+                    this.createStopwatch({time: obj.time,
+                        timeStart: obj.timeStart,
+                        running: obj.running,
+                        lastStopTime: obj.lastStopTime,
+                        stopsCount: obj.stopsCount});
+                });
+                this.stopwatchArr.map((obj) => {
+                    if (obj.isRunning) {
+                        this.startTimer(obj);
+                    }
+                });
+            } catch (err) {
+                console.log("Произошла ошибка при попытке загрузить предыдущие данные" + err.message);
+                this.createStopwatch();
+            }
         }
     }
 
